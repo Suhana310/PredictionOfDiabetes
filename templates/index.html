@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Diabetes Predictor</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+       body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: linear-gradient(135deg, #c71585, #8a2be2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            width: 200%;
+            margin: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 8px;
+            max-height: 80vh; /* Maximum height of 80% of the viewport height */
+            overflow: auto; /* Add scrollbar if content exceeds height */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: calc(100% - 22px); /* Adjusted width to accommodate padding and border */
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        button {
+            width: 20%;
+            background-color: #27d830; /* Red */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <h1 style="color:rgba(7, 7, 7, 0.934);font: size 500px;">Diabetes Predictor</h1>
+        <form action="/predict" method="post">
+            <label for="Pregnancies">Pregnancies:</label>
+            <input type="text" id="Pregnancies" name="Pregnancies"  placeholder="Pregnancies [range = 0 to 17]" required="required" title="Numbers only, please.[range = 0 to 17]"/><br>
+            <label for="glucose">Glucose:</label>
+            <input type="text" id="glucose" name="glucose"  placeholder="Glucose [range = 0 to 199]" required="required"  title="Numbers only, please.[range = 0 to 199]"/><br>
+            <label for="bloodpressure">Blood BloodPressure:</label>
+            <input type="text" id="bloodpressure" name="bloodpressure"  placeholder="BloodPressure [range = 0 to 122]" required="required"  title="Numbers only, please.[range = 0 to 122]"/><br>
+            <label for="skinthickness">SkinThickness:</label>
+            <input type="text" id="skinthickness" name="skinthickness"  placeholder="skinthickness [range = 0 to 99]" required="required"  title="Numbers only, please.[range = 0 to 99]"/><br>
+            <label for="insulin">Insulin:</label>
+            <input type="text" id="insulin" name="insulin"  placeholder="Insulin [range = 0 to 846]" required="required"  title="Numbers only, please.[range = 0 to 846]"/><br>
+            <label for="bmi">BMI:</label>
+            <input type="text" id="bmi" name="bmi"  placeholder="BMI [range = 0 to 67.1]" required="required" title="Numbers only, please.[range = 0 to 67.1]"/><br>
+            <label for="dpf">Diabetes Pedigree Function:</label>
+            <input type="text" id="dpf" name="dpf"  placeholder="Diabetes Pedigree Function [range = 0 to 1]" required="required" required step="0.001"  min="0" title="Numbers only, please.[range = 0 to 1]"/><br>
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age"  placeholder="Age [range = 21 to 81]" required="required" title="Numbers only, please.[range = 21 to 81]"/><br>
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
